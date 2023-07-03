@@ -69,5 +69,5 @@ variable "health_check_grace_period" {
 }
 
 variable "mybucket1" {
-    default = "terraformcodest09"
+  default = "terraformcodest09"
 }
