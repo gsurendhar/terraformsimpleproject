@@ -53,4 +53,3 @@ resource "aws_route_table_association" "RTA" {
   subnet_id = aws_subnet.subnet-1.id
 }
 
-
