@@ -3,7 +3,7 @@ resource "aws_vpc" "VPC" {
   cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = "true"
   tags = {
-    Name = "$(var.vpc-tag)"
+    Name = "VPC-terraform"
   }
 }
 
@@ -14,7 +14,7 @@ resource "aws_subnet" "subnet-1" {
   map_public_ip_on_launch                     = "true"
   enable_resource_name_dns_a_record_on_launch = "true"
   tags = {
-    Name = "$(var.subnet-1-tag)"
+    Name = "Subnet-1-Public"
   }
 }
 
@@ -25,7 +25,7 @@ resource "aws_subnet" "subnet-2" {
   map_public_ip_on_launch                     = "true"
   enable_resource_name_dns_a_record_on_launch = "true"
   tags = {
-    Name = "$(var.subnet-2-tag)"
+    Name = "Subnet-2-Public"
   }
 }
 

@@ -27,21 +27,43 @@ variable "subnet-2_cidr_block" {
   type        = string
   default     = "10.10.20.0/24"
 }
-variable "vpc-tag" {
-  type    = string
-  default = "VPC-terraform"
-}
-variable "subnet-1-tag" {
-  type    = string
-  default = "Subnet-1-Public"
-}
-variable "subnet-2-tag" {
-  type    = string
-  default = "Subnet-2-Public"
-}
+
 variable "route_cidr_block" {
   description = "routing table cidr block ip range"
   type        = string
   default     = "0.0.0.0/0"
 }
 
+
+
+
+
+variable "health-check-path" {
+  description = "The apps public sub domain name"
+  type        = string
+  default     = "/"
+}
+
+variable "health-check-port" {
+  description = "The apps public sub domain name"
+  type        = string
+  default     = "80"
+}
+
+variable "health_check_interval" {
+  description = "The interval between health checks"
+  type        = string
+  default     = "5"
+}
+
+variable "health_check_threshold" {
+  description = "The number of consecutive health checks to be considered (un)healthy."
+  type        = string
+  default     = "3"
+}
+
+variable "health_check_grace_period" {
+  description = "Time (in seconds) after instance comes into service before checking health."
+  type        = string
+  default     = "3"
+}

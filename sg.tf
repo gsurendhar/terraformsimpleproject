@@ -1,4 +1,4 @@
-# security group
+# security group to allow all traffic
 resource "aws_security_group" "MYSG" {
   vpc_id = aws_vpc.VPC.id
   ingress {
@@ -16,6 +16,4 @@ resource "aws_security_group" "MYSG" {
   tags = {
     Name = "MYSG-1"
   }
-
-
 }
