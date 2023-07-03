@@ -67,3 +67,7 @@ variable "health_check_grace_period" {
   type        = string
   default     = "3"
 }
+
+variable "mybucket1" {
+    default = "terraformcodest09"
+}
