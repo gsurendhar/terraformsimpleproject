@@ -5,5 +5,5 @@ terraform {
     bucket = "terraformcodest09"
     key    = "statefile/terraform.tfstate"
     region = "us-east-1"
-}
+  }
 }

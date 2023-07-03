@@ -71,3 +71,22 @@ variable "health_check_grace_period" {
 variable "mybucket1" {
   default = "terraformcodest09"
 }
+
+
+variable "asg-min-size" {
+  description = "The minimum size of the Auto Scaling Group"
+  type        = string
+  default     = 2
+}
+
+variable "asg-max-size" {
+  description = "The maximum size of the Auto Scaling Group"
+  type        = string
+  default     = 4
+}
+
+variable "asg-def-size" {
+  description = "The default/recommended size of the Auto Scaling Group"
+  type        = string
+  default     = 2
+}

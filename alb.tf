@@ -4,14 +4,15 @@ resource "aws_lb" "LB" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.MYSG.id}"]
-  subnets            = ["${aws_subnet.subnet-1.id}", "${aws_subnet.subnet-2.id}"]
+ # subnets            = ["${aws_subnet.subnet-1.id}", "${aws_subnet.subnet-2.id}"]
+ subnets            = ["${aws_subnet.subnet-1.id}"]
   tags = {
     Name = "application_LB"
   }
 }
 
 # application LB target group
-resource "aws_lb_target_group" "LB-taget" {
+resource "aws_lb_target_group" "LB-target" {
   name     = "LB-target-1"
   port     = 80
   protocol = "HTTP"
@@ -32,11 +33,11 @@ resource "aws_lb_target_group" "LB-taget" {
   }
 }
 # load balancer target group attachement
-# resource "aws_lb_target_group_attachment" "LB-target-attach" {
-# target_group_arn = aws_lb_target_group.LB-taget.arn
-#  port = 80
-# target_
-# }
+resource "aws_lb_target_group_attachment" "LB-target-attach" {
+  target_group_arn = aws_lb_target_group.LB-target.arn
+  port             = 80
+  target_id        = aws_instance.MYEC2.id
+}
 
 # load balancer listeners
 resource "aws_lb_listener" "forward" {
@@ -45,7 +46,7 @@ resource "aws_lb_listener" "forward" {
   protocol          = "HTTP"
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.LB-taget.arn
+    target_group_arn = aws_lb_target_group.LB-target.arn
   }
 }
 
