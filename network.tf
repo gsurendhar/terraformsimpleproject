@@ -13,7 +13,7 @@ resource "aws_subnet" "subnet-1" {
   cidr_block                                  = var.subnet-1_cidr_block
   map_public_ip_on_launch                     = "true"
   enable_resource_name_dns_a_record_on_launch = "true"
-  availability_zone                           = "${var.region}a"  
+  availability_zone                           = "${var.region}a"
   tags = {
     Name = "Subnet-1-Public"
   }
